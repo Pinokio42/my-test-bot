@@ -4,6 +4,7 @@
   "description": "my first bot for test",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "node index.js"
   },
   "keywords": [
