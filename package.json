@@ -1,15 +1,66 @@
-{
-  "name": "my-test-bot",
-  "version": "9.1.3",
-  "description": "my first bot for test",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "test": "node index.js"
-  },
-  "keywords": [
-    "Bot"
-  ],
-  "author": "Pinokio Bot",
-  "license": "ISC"
-}
+#!/bin/bash
+
+source ~/.bashrc
+echo ""
+echo ""
+echo ""
+echo -e "\033[34m----------------------------------\033[0m"
+echo "^^Dragon Nest M CMD Assistant^^"
+echo "Ubuntu 20.04"
+echo -e "\033[34m----------------------------------\033[0m"
+echo "(1) Download aaPanel(DEV only)"
+echo -e "\033[34m(2) Install pip bash(skip when pip has ben installed)\033[0m"
+echo -e "\033[34m(3) Install gdown(skip when gdown has ben installed)\033[0m"
+echo "(4) Make server file(DEV only)"
+echo "(5) Extract server file(DEV only)"
+echo "(6) Make patch 1.6 file(DEV only)"
+echo "(7) Extract patch 1.6 file(DEV only)"
+echo "(8) Setup the runtime library(DEV only)"
+echo "(9) Set execute permission(Dev only)"
+echo "(10) Start all services"
+echo "(11) Close all services"
+echo "(0) Cancel command"
+echo -e "\033[34m----------------------------------\033[0m"
+read -p "Enter the command number: " input
+case $input in
+    1)
+    apt install -y wget && wget -O install.sh http://www.aapanel.com/script/install_6.0_en.sh && bash install.sh aapanel;;
+    2)
+    apt install python3-pip;;
+    3)
+    pip install gdown
+    pip install --upgrade gdown;;
+    4)
+    cd /
+    gdown 1SVyDAR1WpO61-iZPvmXnZGEmYZnu824D;;
+    5)
+    cd /
+    unzip lzg.zip;;
+    6)
+    cd /
+    gdown 1n8sOEilFdAHhTexo4gDjqmW9PLOrvwfJ;;
+    7)
+    cd /
+    unzip dev10release3.zip;;
+    8)
+    apt-get update
+    apt-get install libgoogle-perftools-dev
+    apt-get install screen;;
+    9)
+    chmod -R 777 /data
+    cd /lib64
+    echo "Preparing...";;
+    10)
+    echo "----Start the Dragon Nest M server----"
+    cd /data/s1/Redis
+    ./redis-server 6379.conf &
+    sleep 2
+    cd /data/s1001
+    ./start;;
+    11)
+    killall -9 redis-server
+    cd /data/s1001
+    ./stop;;
+    0)
+    exit;;
+esac
